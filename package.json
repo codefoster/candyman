@@ -1,11 +1,14 @@
 {
   "name": "candyman",
-  "version": "0.1.0",
+  "version": "0.1.83",
   "description": "Deploy to Linux devices",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com/)",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "q": "^1.2.0"
+  }
 }
