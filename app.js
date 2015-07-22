@@ -86,7 +86,7 @@ Candyman.prototype.deploy = function () {
             })
 
             //catch errors
-            .catch(function () {
+            .catch(function (err) {
                 console.log('Error in ' + task + ' task on ' + d.hostname + ': ' + err);
             });
     })
