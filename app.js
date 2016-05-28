@@ -20,9 +20,10 @@ function initializeTargetDevices() {
         //defaults
         d.sshPort = d.sshPort || config.sshPort || 22;
         d.projectName = d.projectName || config.projectName || 'myproject';
-        d.root = d.root || config.root || '/home/root';
         d.root = d.root + '/' + d.projectName;
         d.user = d.user || config.user || 'root';
+        d.root = d.root || config.root || '/home/' + d.user;
+        console.log(d.root);
         d.password = d.password || config.password;
         d.startFile = d.startFile || config.startFile || 'app.js';
 
@@ -81,8 +82,9 @@ Candyman.prototype.deploy = function () {
             })
 
             //copy files
+            //TODO: should not be hard coded... default to all .js and .json or allow config include or exclude
             .then(function () {
-                return d.execLocalAsync('scp app.js package.json ' + d.user + '@' + d.hostname + ':' + d.root)
+                return d.execLocalAsync('scp index.js config.js package.json ' + d.user + '@' + d.hostname + ':' + d.root)
             })
 
             //catch errors
